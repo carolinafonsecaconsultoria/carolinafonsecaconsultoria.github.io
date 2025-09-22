@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é que a Bahia tem? - Treinamento de Hospitalidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Cor de fundo padrão */
+            color: #212529; /* Preto/Cinza escuro do PDF */
+        }
+        .content-wrapper {
+             /*
+            ==================================================================
+            INSTRUÇÃO: Cole o link para a sua imagem de textura abaixo,
+            dentro dos parênteses de url(''). 
+            Exemplo: background-image: url('https://seusite.com/textura.png');
+            ==================================================================
+            */
+            background-image: url('fundo.png');
+        }
+        .font-serif {
+            font-family: 'Poppins', sans-serif;
+        }
+        .brand-accent {
+            color: #212529; /* Ícones e detalhes agora em preto */
+        }
+        .brand-accent-bg {
+            background-color: #212529; /* Botão "Descubra Como" agora em preto */
+        }
+        .brand-secondary {
+            color: #495057; /* Cinza médio para textos secundários */
+        }
+        .brand-secondary-bg {
+            background-color: #ffffff; /* Branco */
+        }
+        .brand-dark-blue {
+            background-color: #212529; /* Preto/Cinza escuro do PDF */
+        }
+
+        /* Animações de Scroll Aprimoradas */
+        .animated-element {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up {
+            transform: translateY(40px);
+        }
+        .slide-in-left {
+            transform: translateX(-50px);
+        }
+        .slide-in-right {
+            transform: translateX(50px);
+        }
+        .visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* Estilo do Acordeão */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .accordion-item.open .accordion-content {
+            max-height: 500px;
+        }
+        .accordion-item.open .accordion-icon {
+            transform: rotate(45deg);
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-item {
+            transition: background-color 0.3s ease;
+        }
+        .accordion-item:hover {
+            background-color: #e9ecef;
+        }
+
+        /* Efeito Header Dinâmico */
+        #header.header-hidden {
+            top: -100px;
+        }
+        
+        /* Efeitos de Interação nos Cards */
+        .card-interactive {
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .card-interactive:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Efeito 3D nos Materiais */
+        .material-card-container {
+             perspective: 1000px;
+        }
+        .material-card {
+            transition: transform 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* Botão CTA WhatsApp Animado */
+        .cta-button-animated {
+            background: linear-gradient(45deg, #25D366, #128C7E, #25D366);
+            background-size: 200% auto;
+            animation: gradient-flow 4s ease infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button-animated:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.5);
+        }
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Cabeçalho -->
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-black/50 backdrop-blur-lg transition-all duration-500 rounded-full shadow-lg" id="header">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center gap-6">
+            <h2 class="text-md font-bold text-white whitespace-nowrap" id="header-title">O que é que a Bahia tem?</h2>
+            <a href="#investimento" class="bg-white/20 backdrop-blur-sm text-white font-semibold py-2 px-4 rounded-full hover:bg-white/30 transition duration-300 text-sm hidden sm:inline-block whitespace-nowrap">
+                Garanta sua Vaga
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Herói com Vídeo -->
+        <section class="relative min-h-screen flex items-center justify-center text-center text-white">
+            <!-- Vídeo de Fundo -->
+            <div class="absolute top-0 left-0 w-full h-full z-0">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <source src="carol.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+            <!-- Overlay Escuro -->
+            <div class="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
+            <!-- Conteúdo da Seção -->
+            <div class="relative z-20 container mx-auto px-6 animated-element fade-in-up">
+                <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">A arte de encantar clientes com a hospitalidade baiana.</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">Transforme seu atendimento em uma experiência inesquecível e veja seus clientes voltarem sempre.</p>
+                <a href="#problema" class="brand-accent-bg text-white font-bold py-3 px-8 rounded-full text-lg hover:opacity-90 transform hover:scale-105 transition duration-300 inline-block">
+                    Descubra Como
+                </a>
+            </div>
+        </section>
+
+        <!-- Wrapper para o conteúdo sobreposto -->
+        <div class="relative content-wrapper" style="margin-top: -120px; border-top-left-radius: 2rem; border-top-right-radius: 2rem; z-index: 30;">
+            <!-- Seção Problema -->
+            <section id="problema" class="py-20 lg:py-32">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4 animated-element fade-in-up">Seu atendimento não gera a conexão que deveria?</h2>
+                    <p class="max-w-2xl mx-auto text-lg mb-12 animated-element fade-in-up brand-secondary" style="transition-delay: 100ms;">Você pode estar enfrentando problemas que nem sempre são óbvios.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Card Problema 1 -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg animated-element fade-in-up card-interactive">
+                            <img src="frio.png" alt="Ícone de atendimento frio" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Atendimento Frio</h3>
+                            <p class="brand-secondary">Clientes não voltam por causa de um contato impessoal que não cria laços.</p>
+                        </div>
+                        <!-- Card Problema 2 -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg animated-element fade-in-up card-interactive">
+                            <img src="equipe.png" alt="Ícone de equipe sem padrão" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Equipes sem Padrão</h3>
+                            <p class="brand-secondary">Cada um atende de um jeito, criando uma experiência inconsistente para o cliente.</p>
+                        </div>
+                        <!-- Card Problema 3 -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg animated-element fade-in-up card-interactive">
+                            <img src="reclamacao.png" alt="Ícone de reclamação" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Reclamações Evitáveis</h3>
+                            <p class="brand-secondary">Muitos problemas poderiam ser resolvidos com uma dose de empatia e escuta ativa.</p>
+                        </div>
+                        <!-- Card Problema 4 -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg animated-element fade-in-up card-interactive">
+                            <img src="fraca.png" alt="Ícone de primeira impressão fraca" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Primeira Impressão Fraca</h3>
+                            <p class="brand-secondary">A primeira chance de encantar é perdida, diminuindo o potencial de fidelização.</p>
+                        </div>
+                    </div>
+                    <p class="mt-12 text-xl font-semibold text-red-600 animated-element fade-in-up">O resultado: perda de clientes, queda no faturamento e má reputação.</p>
+                </div>
+            </section>
+
+            <!-- Seção Solução -->
+            <section class="py-20 lg:py-32 bg-white/80 backdrop-blur-sm">
+                <div class="container mx-auto px-6 text-center">
+                     <h2 class="font-serif text-3xl md:text-4xl font-bold mb-12 animated-element fade-in-up">A Solução: Atendimento que Acolhe e Conquista</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                         <!-- Card Solução 1 -->
+                        <div class="animated-element fade-in-up p-4">
+                            <img src="encantamento.png" alt="Ícone de encantamento" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Encantamento Imediato</h3>
+                            <p class="brand-secondary">Conquiste clientes desde o primeiro "bom dia" com técnicas de primeira impressão.</p>
+                        </div>
+                         <!-- Card Solução 2 -->
+                        <div class="animated-element fade-in-up p-4">
+                            <img src="acolhimento.png" alt="Ícone de acolhimento" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Acolhimento Caloroso</h3>
+                            <p class="brand-secondary">Transforme um simples atendimento em um gesto de boas-vindas que faz a diferença.</p>
+                        </div>
+                         <!-- Card Solução 3 -->
+                        <div class="animated-element fade-in-up p-4">
+                            <img src="humanizado.png" alt="Ícone de atendimento humanizado" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Interações Humanizadas</h3>
+                            <p class="brand-secondary">Aprenda a usar empatia e alegria para criar conexões verdadeiras e memoráveis.</p>
+                        </div>
+                         <!-- Card Solução 4 -->
+                        <div class="animated-element fade-in-up p-4">
+                            <img src="fidelizacao.png" alt="Ícone de fidelização" class="w-16 h-16 mx-auto mb-4">
+                            <h3 class="font-bold text-xl my-3">Fidelização Natural</h3>
+                            <p class="brand-secondary">Crie experiências tão positivas que seus clientes não vão apenas voltar, mas te indicar.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Para quem é -->
+            <section class="py-20 lg:py-32">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold animated-element fade-in-up">Para quem é este treinamento?</h2>
+                    </div>
+                    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+                        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl animated-element fade-in-up card-interactive shadow-lg">
+                            <h3 class="font-bold text-xl">Linha de Frente</h3>
+                            <p class="mt-2 brand-secondary">Hostess, recepcionistas e atendentes em geral que são o primeiro contato com o cliente.</p>
+                        </div>
+                         <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl animated-element fade-in-up card-interactive shadow-lg">
+                            <h3 class="font-bold text-xl">Equipes de Hospitalidade</h3>
+                            <p class="mt-2 brand-secondary">Times de bares, restaurantes, pousadas, hotéis e beach clubs.</p>
+                        </div>
+                         <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl animated-element fade-in-up card-interactive shadow-lg">
+                            <h3 class="font-bold text-xl">Negócios com Visão</h3>
+                            <p class="mt-2 brand-secondary">Empresas que desejam transformar o atendimento em seu maior diferencial competitivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- O que vai aprender -->
+            <section class="py-20 lg:py-32 bg-white/80 backdrop-blur-sm">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold animated-element fade-in-up">O que sua equipe vai aprender</h2>
+                        <p class="max-w-2xl mx-auto text-lg mt-4 animated-element fade-in-up brand-secondary">Uma jornada completa para dominar a arte da hospitalidade.</p>
+                    </div>
+                    <div class="max-w-3xl mx-auto space-y-4" id="accordion">
+                        <!-- Módulo 1 -->
+                        <div class="accordion-item bg-gray-50/80 backdrop-blur-sm rounded-lg shadow-md animated-element fade-in-up">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+                                <h3 class="font-semibold text-lg">Módulo 1 – A primeira impressão é a que fica</h3>
+                                <span class="accordion-icon text-2xl brand-accent font-bold transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="p-5 pt-0 text-gray-600">Técnicas para criar um impacto positivo imediato, desde a postura até o tom de voz, garantindo que o cliente se sinta bem-vindo desde o primeiro segundo.</p>
+                            </div>
+                        </div>
+                         <!-- Módulo 2 -->
+                        <div class="accordion-item bg-gray-50/80 backdrop-blur-sm rounded-lg shadow-md animated-element fade-in-up">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+                                <h3 class="font-semibold text-lg">Módulo 2 – Comunicação que Encanta</h3>
+                                <span class="accordion-icon text-2xl brand-accent font-bold transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="p-5 pt-0 text-gray-600">Como usar a escuta ativa, a linguagem corporal e palavras certas para criar diálogos que constroem confiança e demonstram cuidado genuíno.</p>
+                            </div>
+                        </div>
+                         <!-- Módulo 3 -->
+                        <div class="accordion-item bg-gray-50/80 backdrop-blur-sm rounded-lg shadow-md animated-element fade-in-up">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+                                <h3 class="font-semibold text-lg">Módulo 3 – Postura Profissional e Hospitalidade</h3>
+                                <span class="accordion-icon text-2xl brand-accent font-bold transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="p-5 pt-0 text-gray-600">Unindo profissionalismo com o calor humano. Como manter a excelência no serviço sem perder a autenticidade e a simpatia.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 4 -->
+                        <div class="accordion-item bg-gray-50/80 backdrop-blur-sm rounded-lg shadow-md animated-element fade-in-up">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+                                <h3 class="font-semibold text-lg">Módulo 4 – Atendimento Humanizado</h3>
+                                <span class="accordion-icon text-2xl brand-accent font-bold transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="p-5 pt-0 text-gray-600">Indo além do script. Técnicas para entender as necessidades individuais de cada cliente e oferecer soluções personalizadas e empáticas.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 5 -->
+                        <div class="accordion-item bg-gray-50/80 backdrop-blur-sm rounded-lg shadow-md animated-element fade-in-up">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+                                <h3 class="font-semibold text-lg">Módulo 5 – Resolução de Conflitos com calma e alegria</h3>
+                                <span class="accordion-icon text-2xl brand-accent font-bold transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="p-5 pt-0 text-gray-600">Como transformar reclamações em oportunidades de fidelização, gerenciando situações difíceis com tranquilidade, inteligência emocional e o jeito baiano.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 6 -->
+                        <div class="accordion-item bg-gray-50/80 backdrop-blur-sm rounded-lg shadow-md animated-element fade-in-up">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+                                <h3 class="font-semibold text-lg">Módulo 6 – O que é que a Bahia tem?</h3>
+                                <span class="accordion-icon text-2xl brand-accent font-bold transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="p-5 pt-0 text-gray-600">O segredo final. Como incorporar a cultura, o axé e a alegria da Bahia no atendimento para criar uma marca registrada que nenhum concorrente pode copiar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Por que escolher -->
+            <section class="py-20 lg:py-32">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                        <div class="lg:w-5/12 animated-element slide-in-left">
+                            <img src="carol.jpg" alt="Instrutora do treinamento" class="rounded-xl shadow-2xl object-cover w-full h-full">
+                        </div>
+                        <div class="lg:w-7/12 animated-element slide-in-right" style="transition-delay: 200ms;">
+                            <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Aprenda com quem vive e respira hospitalidade.</h2>
+                            <p class="text-xl mb-6 -mt-4 brand-secondary">Uma jornada guiada por <span class="font-bold text-gray-900">Carol Fonseca</span>.</p>
+                            <ul class="space-y-4 text-lg">
+                                <li class="flex items-start">
+                                    <span class="brand-accent font-bold text-2xl mr-3 mt-1">✓</span>
+                                    <span>Mais de <b class="text-2xl" id="counter">25</b> anos de experiência real em gestão de pessoas.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="brand-accent font-bold text-2xl mr-3 mt-1">✓</span>
+                                    <span>Formação sólida em marketing, liderança e coaching.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="brand-accent font-bold text-2xl mr-3 mt-1">✓</span>
+                                    <span>Vivência prática com hotéis, pousadas e beach clubs de Trancoso e toda a Bahia.</span>
+                                </li>
+                                 <li class="flex items-start">
+                                    <span class="brand-accent font-bold text-2xl mr-3 mt-1">✓</span>
+                                    <span>Consultoria que já transformou equipes inteiras, melhorando o clima, a retenção de clientes e o faturamento.</span>
+                                </li>
+                            </ul>
+                             <p class="mt-8 bg-gray-200/50 p-4 rounded-lg text-lg font-semibold">"Você vai aprender com quem sabe como aplicar a essência baiana nos negócios para gerar resultados."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Materiais Inclusos -->
+            <section class="py-20 lg:py-32 bg-white/80 backdrop-blur-sm">
+                 <div class="container mx-auto px-6 text-center">
+                     <h2 class="font-serif text-3xl md:text-4xl font-bold mb-12 animated-element fade-in-up">Materiais Exclusivos para sua Equipe</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+                        <!-- Material 1 -->
+                        <div class="animated-element fade-in-up material-card-container">
+                            <div class="bg-gray-100/80 backdrop-blur-sm p-4 rounded-lg shadow-md aspect-square flex items-center justify-center material-card">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                            </div>
+                            <h3 class="font-semibold mt-4">Apostila Resumida</h3>
+                        </div>
+                        <!-- Material 2 -->
+                        <div class="animated-element fade-in-up material-card-container">
+                            <div class="bg-gray-100/80 backdrop-blur-sm p-4 rounded-lg shadow-md aspect-square flex items-center justify-center material-card">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <h3 class="font-semibold mt-4">Checklist Diário</h3>
+                        </div>
+                         <!-- Material 3 -->
+                        <div class="animated-element fade-in-up material-card-container">
+                            <div class="bg-gray-100/80 backdrop-blur-sm p-4 rounded-lg shadow-md aspect-square flex items-center justify-center material-card">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                            </div>
+                            <h3 class="font-semibold mt-4">Cartaz 10 Regras de Ouro</h3>
+                        </div>
+                         <!-- Material 4 -->
+                        <div class="animated-element fade-in-up material-card-container">
+                            <div class="bg-gray-100/80 backdrop-blur-sm p-4 rounded-lg shadow-md aspect-square flex items-center justify-center material-card">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                            </div>
+                            <h3 class="font-semibold mt-4">Cartaz Motivacional</h3>
+                        </div>
+                         <!-- Material 5 -->
+                        <div class="animated-element fade-in-up material-card-container col-span-2 md:col-span-1">
+                            <div class="bg-gray-100/80 backdrop-blur-sm p-4 rounded-lg shadow-md aspect-square flex items-center justify-center material-card w-1/2 mx-auto md:w-full">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 brand-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                            </div>
+                            <h3 class="font-semibold mt-4">Certificado de Participação</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Final e Investimento -->
+            <section id="investimento" class="py-20 lg:py-32 brand-dark-blue text-white">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-3xl mx-auto">
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold animated-element fade-in-up">Não deixe sua empresa ser apenas mais uma.</h2>
+                        <p class="text-lg mt-4 animated-element fade-in-up">Mostre para seus clientes "O que é que a Bahia tem" e transforme atendimento em espetáculo!</p>
+
+                        <div class="bg-white/10 p-8 rounded-xl my-12 animated-element fade-in-up">
+                            <p class="text-lg font-bold">Atenção: Apenas 20 vagas por turma!</p>
+                            <p class="text-sm opacity-80 mt-2">Trabalhamos com turmas exclusivas para garantir máxima proximidade e personalização no aprendizado.</p>
+                            <p class="text-lg font-bold mt-4 animate-pulse">⚡ Reserve já a sua data antes que o calendário feche! ⚡</p>
+                        </div>
+
+                        <div class="animated-element fade-in-up" style="transition-delay: 300ms;">
+                            <p class="text-lg">Investimento por participante:</p>
+                            <div class="flex items-baseline justify-center gap-x-4 my-4">
+                                <span class="text-3xl lg:text-4xl font-bold text-white/50 line-through">de R$ 800</span>
+                                <p class="font-serif text-5xl lg:text-6xl font-bold text-amber-300">por R$ 569</p>
+                            </div>
+                            <p class="opacity-80 italic">Investir em atendimento é investir em clientes felizes, negócios prósperos e equipes mais motivadas.</p>
+                        </div>
+
+                        <a href="https://wa.me/5521967706979?text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+o+treinamento+%22O+que+%C3%A9+que+a+Bahia+tem%3F%22" target="_blank" class="mt-12 inline-flex items-center cta-button-animated text-white font-bold py-4 px-10 rounded-full text-xl">
+                            <!-- INSTRUÇÃO: Para usar um ícone personalizado, troque a tag <img> abaixo. -->
+                            <!-- Exemplo: <img src="meu-icone-whatsapp.svg" class="h-6 w-6 mr-3"> -->
+                            <img src="zap.png" alt="Ícone do WhatsApp" class="h-6 w-6 mr-3">
+                            Fale Comigo no WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-[#3D352E] text-white/70 py-10 text-center">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2025 O que é que a Bahia tem?</p>
+            <p class="text-sm mt-2">Treinamento Presencial | Local: Vila do Divino, Trancoso - BA</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animação do Header Dinâmico (Dynamic Island)
+            const header = document.getElementById('header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > lastScrollY && window.scrollY > 150) {
+                    header.classList.add('header-hidden');
+                } else {
+                    header.classList.remove('header-hidden');
+                }
+                lastScrollY = window.scrollY < 0 ? 0 : window.scrollY;
+            });
+
+            // Animações de Scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animated-element').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Acordeão
+            const accordion = document.getElementById('accordion');
+            if(accordion) {
+                accordion.addEventListener('click', (e) => {
+                    const header = e.target.closest('.accordion-header');
+                    if (header) {
+                        const item = header.parentElement;
+                        const wasOpen = item.classList.contains('open');
+                        Array.from(item.parentElement.children).forEach(child => {
+                            child.classList.remove('open');
+                        });
+                        if (!wasOpen) {
+                            item.classList.add('open');
+                        }
+                    }
+                });
+            }
+
+            // Contador
+            const counterElement = document.getElementById('counter');
+            if(counterElement){
+                const counterObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const target = +entry.target.innerText;
+                            entry.target.innerText = '0';
+                            let current = 0;
+                            const increment = target / 200;
+                            const updateCounter = () => {
+                                if (current < target) {
+                                    current += increment;
+                                    entry.target.innerText = Math.ceil(current);
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    entry.target.innerText = target;
+                                }
+                            };
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.8 });
+                counterObserver.observe(counterElement);
+            }
+
+            // Efeito 3D nos cards de materiais (com lógica para mobile)
+            const materialCards = document.querySelectorAll('.material-card');
+            const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            if (isMobile) {
+                // Lógica de animação 3D por scroll para mobile
+                let ticking = false;
+
+                const handleScroll = () => {
+                    const screenCenter = window.innerHeight / 2;
+                    
+                    materialCards.forEach(card => {
+                        const rect = card.getBoundingClientRect();
+                        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+                            return; // Otimização: ignora cards fora da tela
+                        }
+
+                        const cardCenter = rect.top + rect.height / 2;
+                        const distanceFromCenter = screenCenter - cardCenter;
+                        
+                        const intensity = 0.04; 
+                        const rotateX = distanceFromCenter * intensity;
+                        
+                        const scaleZone = window.innerHeight * 0.4;
+                        const scaleFactor = Math.max(0, 1 - (Math.abs(distanceFromCenter) / scaleZone));
+                        const scale = 1 + (0.1 * scaleFactor);
+
+                        card.style.transform = `rotateX(${rotateX}deg) scale(${scale})`;
+                    });
+                    ticking = false;
+                };
+
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(handleScroll);
+                        ticking = true;
+                    }
+                }, { passive: true });
+                
+                handleScroll();
+
+            } else {
+                // Lógica de hover para desktop
+                materialCards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const { left, top, width, height } = card.getBoundingClientRect();
+                        const x = e.clientX - left;
+                        const y = e.clientY - top;
+                        const rotateX = -10 * ((y - height / 2) / (height / 2));
+                        const rotateY = 10 * ((x - width / 2) / (width / 2));
+                        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
